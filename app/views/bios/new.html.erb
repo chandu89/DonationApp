@@ -1,3 +1,4 @@
+<p><%= flash[:notice] %></p>
 <%= link_to "Sign out", destroy_user_session_path, :method => :delete %>
 
 <h1>New Bio</h1>
@@ -5,3 +6,7 @@
 <%= render 'form', bio: @bio %>
 
 <%= link_to 'Back', bios_path %>
+
+<%= form_tag create_payment_method_path, id: "donation-create-payment-method" do  %>
+  <%= link_to "Let's go", add_payment_method_path, remote: true, class: "btn btn-primary" %>
+<% end %>
