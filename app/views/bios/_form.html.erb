@@ -1,0 +1,22 @@
+<%= form_with(model: bio, local: true) do |form| %>
+  <% if bio.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(bio.errors.count, "error") %> prohibited this bio from being saved:</h2>
+
+      <ul>
+      <% bio.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :Bio %>
+    <%= form.text_area :Bio %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>
