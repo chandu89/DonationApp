@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'donation_list/index'
   resources :bios
   devise_for :users
   root 'bios#new', as: :Bio
