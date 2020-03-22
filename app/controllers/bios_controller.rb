@@ -5,7 +5,7 @@ class BiosController < ApplicationController
   # GET /bios
   # GET /bios.json
   def index
-    @bios = Bio.all
+    @bios = current_user.bios.all
   end
 
   # GET /bios/1

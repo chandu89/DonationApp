@@ -14,9 +14,9 @@
     <% @bios.each do |bio| %>
       <tr>
         <td><%= bio.Bio %></td>
-        <td><%= link_to 'Show', bio %></td>
-        <td><%= link_to 'Edit', edit_bio_path(bio) %></td>
-        <td><%= link_to 'Destroy', bio, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Show', bio, class: "normal-link" %></td>
+        <td><%= link_to 'Edit', edit_bio_path(bio), class: "normal-link" %></td>
+        <td><%= link_to 'Destroy', bio, method: :delete, data: { confirm: 'Are you sure?' }, class: "normal-link"%></td>
       </tr>
     <% end %>
   </tbody>
@@ -24,4 +24,4 @@
 
 <br>
 
-<%= link_to 'New Bio', new_bio_path %>
+<%= link_to 'New Bio', new_bio_path, class: "normal-link" %>
