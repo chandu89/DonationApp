@@ -1,14 +1,13 @@
 require 'rails_helper'
 
 RSpec.describe BiosController, type: :controller do
-  let(:user) {FactoryGirl.create(:user, :with_bios)}
+  let(:user) { FactoryGirl.create(:user, :with_bios) }
   login_user
   describe '#index' do
-
     context 'returns all the bios' do
       before do
         allow(controller).to receive(:current_user).and_return(user)
-        request.env["HTTP_ACCEPT"] = 'application/json'
+        request.env['HTTP_ACCEPT'] = 'application/json'
         get :index
       end
 
@@ -17,18 +16,17 @@ RSpec.describe BiosController, type: :controller do
       end
 
       it 'returns all the bios' do
-        expect(JSON.parse(response.body).collect{|a| a['Bio']}).to eq(user.bios.map(&:Bio))
+        expect(JSON.parse(response.body).collect { |a| a['Bio'] }).to eq(user.bios.map(&:Bio))
       end
     end
   end
 
   describe '#create' do
     context 'when accessing create via POST' do
-
       before do
         allow(controller).to receive(:current_user).and_return(user)
-        request.env["HTTP_ACCEPT"] = 'application/json'
-        post :create,  params: {bio: {Bio: "First Bio"}}
+        request.env['HTTP_ACCEPT'] = 'application/json'
+        post :create, params: { bio: { Bio: 'First Bio' } }
       end
 
       it 'returns a 201 (Created)' do
@@ -39,8 +37,8 @@ RSpec.describe BiosController, type: :controller do
     context 'when incorrect parameters are passed' do
       before do
         allow(controller).to receive(:current_user).and_return(user)
-        request.env["HTTP_ACCEPT"] = 'application/json'
-        post :create, params: {bio: {Bio: ''}}
+        request.env['HTTP_ACCEPT'] = 'application/json'
+        post :create, params: { bio: { Bio: '' } }
       end
 
       it 'returns a 400 (Bad Request)' do
@@ -48,5 +46,4 @@ RSpec.describe BiosController, type: :controller do
       end
     end
   end
-
 end

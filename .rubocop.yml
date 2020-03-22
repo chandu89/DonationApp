@@ -6,6 +6,7 @@ Metrics/BlockLength:
   Max: 30
   Exclude:
     - config/routes.rb
+    - spec/controllers/**/*
 Metrics/LineLength:
   Max: 150
 Metrics/MethodLength:
@@ -23,3 +24,6 @@ AllCops:
   - app/controllers/bios_controller.rb
   - app/helpers/**/* # Because i have not added any helper for future we can remove this line
   - app/mailers/**/*
+  - app/controllers/application_controller.rb
+  - spec/rails_helper.rb
+  - spec/spec_helper.rb
