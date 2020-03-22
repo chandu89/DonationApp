@@ -6,6 +6,7 @@ class BiosController < ApplicationController
   # GET /bios.json
   def index
     @bios = current_user.bios.all
+    render :json => @bios
   end
 
   # GET /bios/1
