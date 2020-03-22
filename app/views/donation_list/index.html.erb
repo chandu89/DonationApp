@@ -1,4 +1,4 @@
-<h1 class="text-center display-6">Donate As per User And His Bio</h1>
+<h1 class="text-center">Donate As per User And His Bio</h1><%= link_to "Log in", new_user_session_path, class: "normal-link" %><br>
 <br/>
 <br/>
 <% @users.each do |user| %>
@@ -7,7 +7,10 @@
       Email: <%= user.email %>
     </div>
     <div class="col-md-6">
-        Bio: <%= user.bios.first.try(:Bio) %>
+
+        <% user.bios.each_with_index do |bio, index| %>
+          <%= "Bio-#{index+1}:  "+bio.try(:Bio) %> <br/>
+        <%end%>
     </div>
     <div class="col-md-2">
       <%= form_tag create_donate_payment_method_path, id: "donation-list-create-payment-method" do  %>
@@ -16,5 +19,4 @@
     </div>
   </div>
   <br/>
-
 <%end%>
