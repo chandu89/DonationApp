@@ -27,7 +27,7 @@ RSpec.describe DonationListController, type: :controller do
       before do
         allow(controller).to receive(:current_user).and_return(user)
         request.env['HTTP_ACCEPT'] = 'application/json'
-        get :new_card, format: 'js', params: {user_id: user.id}
+        get :new_card, format: 'js', params: { user_id: user.id }
       end
 
       it 'returns a 200 (Ok)' do

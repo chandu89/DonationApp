@@ -1,18 +1,20 @@
 class BiosController < ApplicationController
-  before_action :set_bio, only: [:show, :edit, :update, :destroy]
+  before_action :set_bio, only: %i[show edit update destroy]
   before_action :authenticate_user!
 
   # GET /bios
   # GET /bios.json
   def index
     @bios = current_user.bios.all
-    render :json => @bios
+    respond_to do |format|
+      format.html
+      format.json { render json: @bios }
+    end
   end
 
   # GET /bios/1
   # GET /bios/1.json
-  def show
-  end
+  def show; end
 
   # GET /bios/new
   def new
@@ -20,8 +22,7 @@ class BiosController < ApplicationController
   end
 
   # GET /bios/1/edit
-  def edit
-  end
+  def edit; end
 
   # POST /bios
   # POST /bios.json
@@ -64,13 +65,14 @@ class BiosController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_bio
-      @bio = current_user.bios.find(params[:id])
-    end
 
-    # Only allow a list of trusted parameters through.
-    def bio_params
-      params.require(:bio).permit(:Bio)
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_bio
+    @bio = current_user.bios.find(params[:id])
+  end
+
+  # Only allow a list of trusted parameters through.
+  def bio_params
+    params.require(:bio).permit(:Bio)
+  end
 end
