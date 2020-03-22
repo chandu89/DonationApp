@@ -1,0 +1,25 @@
+Style/FrozenStringLiteralComment:
+  Enabled: false
+Metrics/AbcSize:
+  Enabled: false
+Metrics/BlockLength:
+  Max: 30
+  Exclude:
+    - config/routes.rb
+Metrics/LineLength:
+  Max: 150
+Metrics/MethodLength:
+  Max: 100
+AllCops:
+  Exclude:
+  - Gemfile
+  - Gemfile.lock
+  - 'node_modules/**/*'
+  - 'vendor/**/*'
+  - test/**/*.rb
+  - db/**/*.rb
+  - config/**/*.rb
+  - bin/**/*
+  - app/controllers/bios_controller.rb
+  - app/helpers/**/* # Because i have not added any helper for future we can remove this line
+  - app/mailers/**/*

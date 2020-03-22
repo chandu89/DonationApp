@@ -1,1 +1,1 @@
-json.partial! "bios/bio", bio: @bio
+json.partial! 'bios/bio', bio: @bio

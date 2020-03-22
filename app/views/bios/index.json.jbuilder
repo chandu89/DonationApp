@@ -1,1 +1,1 @@
-json.array! @bios, partial: "bios/bio", as: :bio
+json.array! @bios, partial: 'bios/bio', as: :bio
