@@ -6,7 +6,6 @@ RSpec.describe Bio, type: :model do
   describe '#Bio' do
     it "should return error with blank Bio" do
       record = Bio.new
-      record.Bio = '' # invalid state
       record.valid? # run validations
       expect(record.errors[:Bio]).to eq(["can't be blank"])
     end
