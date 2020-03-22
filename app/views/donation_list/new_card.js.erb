@@ -1,0 +1,32 @@
+var handler = StripeCheckout.configure({
+    key: '<%= Rails.application.credentials.stripe[Rails.env.to_sym][:publishable_key] %>',
+    //get a publishable key that we put in editor depending on environment: production or development
+    locale: 'auto',
+    //handle translation
+    name: "upload.express",
+    description: "Add your credit card information",
+    panelLabel: "Add payment method",
+    allowRememberMe: false,
+    token: function (token) {
+        var form = document.getElementById('donation-list-create-payment-method');
+        //we will create element with this id in the next step
+        var hiddenInput = document.createElement('input');
+        hiddenInput.setAttribute('type', 'hidden');
+        hiddenInput.setAttribute('name', 'stripeToken');
+        hiddenInput.setAttribute('value', token.id);
+        var hiddenUserId = document.createElement('input');
+        hiddenUserId.setAttribute('type', 'hidden');
+        hiddenUserId.setAttribute('name', 'user_id');
+        hiddenUserId.setAttribute('value', '<%=@user.id%>');
+        form.appendChild(hiddenInput);
+        form.appendChild(hiddenUserId);
+        //adding this input when we use a form.
+        form.submit();
+    }
+});
+
+handler.open();
+
+window.addEventListener('popstate', function() {
+    handler.close();
+});

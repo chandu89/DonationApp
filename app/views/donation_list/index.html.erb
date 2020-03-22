@@ -10,7 +10,9 @@
         Bio: <%= user.bios.first.try(:Bio) %>
     </div>
     <div class="col-md-2">
-        <input type="submit" class="btn btn-success" value="Donate">
+      <%= form_tag create_donate_payment_method_path, id: "donation-list-create-payment-method" do  %>
+        <%= link_to "Donate", add_donate_payment_method_path(:user_id=>user.id), remote: true, class: "btn btn-success" %>
+      <% end %>
     </div>
   </div>
   <br/>
