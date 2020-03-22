@@ -1,9 +1,12 @@
 # DonationListController is for donation to open source contributers
 class DonationListController < ApplicationController
   before_action :set_user, only: %I[new_card create_card]
+  before_action :authenticate_user!
+  protect_from_forgery except: :new_card
 
   def index
     @users = User.all
+    render :json => @users
   end
 
   def new_card
