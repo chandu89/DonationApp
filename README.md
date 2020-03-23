@@ -34,3 +34,5 @@ Then navigate to `localhost:3000` in your browser.
 * Rubocop for better coding practices
 * devise for user authentication
 * stripe implemented for payment solution.
+
+<img width="1289" alt="Screen Shot 2020-03-22 at 9 03 30 PM" src="https://user-images.githubusercontent.com/5196979/77293374-3388f100-6d08-11ea-929f-385ca8b3ecc3.png">
