@@ -10,12 +10,12 @@ Many open source contributors depend on donations to maintain their opensource w
 4. Install postgresql.
 5. Install the Gem dependencies
 
-    bundle install
+        bundle install
 
 6. In order to run locally, the local sqlite database will need to be set up.
 
-    rake db:create db:migrate RAILS_ENV=development
-    rake db:create db:migrate RAILS_ENV=test
+        rake db:create db:migrate RAILS_ENV=development
+        rake db:create db:migrate RAILS_ENV=test
 
 7. Start the server
 
@@ -25,7 +25,7 @@ Many open source contributors depend on donations to maintain their opensource w
 
         COVERAGE=true rspec
 
-Then navigate to `localhost:3000` in your browser. 
+Then navigate to `localhost:3000` in your browser.
 
 
 ## What else is there
