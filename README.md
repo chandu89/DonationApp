@@ -1,24 +1,36 @@
-# README
+# DonationApp
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Many open source contributors depend on donations to maintain their opensource work. So this app will allow opensource contributors to collect donations.
 
-Things you may want to cover:
+## Getting Started
 
-* Ruby version
+1. Clone the repository.
+2. Install rvm (ruby version manager).
+3. Install the version of Ruby mentioned in .ruby-version file.
+4. Install postgresql.
+5. Install the Gem dependencies
 
-* System dependencies
+    bundle install
 
-* Configuration
+6. In order to run locally, the local sqlite database will need to be set up.
 
-* Database creation
+    rake db:create db:migrate RAILS_ENV=development
+    rake db:create db:migrate RAILS_ENV=test
 
-* Database initialization
+7. Start the server
 
-* How to run the test suite
+        rails s
 
-* Services (job queues, cache servers, search engines, etc.)
+8. rspec and simplecove
 
-* Deployment instructions
+        COVERAGE=true rspec
 
-* ...
+Then navigate to `localhost:3000` in your browser. 
+
+
+## What else is there
+
+* Rspec and simplcove is implemented for all the testing.
+* Rubocop for better coding practices
+* devise for user authentication
+* stripe implemented for payment solution.
