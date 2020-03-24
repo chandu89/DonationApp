@@ -12,7 +12,7 @@ Many open source contributors depend on donations to maintain their opensource w
 
         bundle install
 
-6. In order to run locally, the local sqlite database will need to be set up.
+6. In order to run locally, the local postgresql database will need to be set up.
 
         rake db:create db:migrate RAILS_ENV=development
         rake db:create db:migrate RAILS_ENV=test
